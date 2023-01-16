@@ -10,6 +10,7 @@
             <button type="button" onclick="age_chk()">Click</button>
         </div>
         <div>
+            <p id="text"></p>
             <table id="tbl"></table>
         </div>
         <script>
@@ -17,6 +18,8 @@
             function age_chk(){
                 var text = document.getElementById('inp').value
                 var mp = new Map()
+                document.getElementById('text').innerHTML = 'Text Input: ' + text
+                document.getElementById('tbl').innerHTML = ""
                 for (letter of text){
                     if (mp.has(letter)){
                         mp.set(letter,mp.get(letter)+1)
@@ -42,6 +45,8 @@
                     tr.append(td_2)
                     document.getElementById('tbl').append(tr)
                 }
+                document.getElementById('inp').value = ""
+                
             }
         
         </script>

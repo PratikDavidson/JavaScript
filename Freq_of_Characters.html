@@ -36,6 +36,7 @@
                 tr.append(th_2)
                 document.getElementById('tbl').append(tr)
                 for (data of mp){
+                    if (data[0] != ' '){
                     var tr = document.createElement('tr')
                     var td_1 = document.createElement('td')
                     var td_2 = document.createElement('td')
@@ -44,6 +45,7 @@
                     tr.append(td_1)
                     tr.append(td_2)
                     document.getElementById('tbl').append(tr)
+                    }
                 }
                 document.getElementById('inp').value = ""
                 

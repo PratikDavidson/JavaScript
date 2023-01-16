@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="mystyle.css">
+        <h1>Count Freq of Characters</h1>
+    </head>
+    <body>
+        <div>
+            <h3>Enter Text Below:</h3>
+            <input type="text" id="inp"/>
+            <button type="button" onclick="age_chk()">Click</button>
+        </div>
+        <div>
+            <table id="tbl"></table>
+        </div>
+        <script>
+            console.log('Hello World!')
+            function age_chk(){
+                var text = document.getElementById('inp').value
+                var mp = new Map()
+                for (letter of text){
+                    if (mp.has(letter)){
+                        mp.set(letter,mp.get(letter)+1)
+                    }else{
+                        mp.set(letter,1)
+                    }
+                }
+                var tr = document.createElement('tr')
+                var th_1 = document.createElement('th')
+                var th_2 = document.createElement('th')
+                th_1.innerHTML = 'Letter'
+                th_2.innerHTML = 'Freq'
+                tr.append(th_1)
+                tr.append(th_2)
+                document.getElementById('tbl').append(tr)
+                for (data of mp){
+                    var tr = document.createElement('tr')
+                    var td_1 = document.createElement('td')
+                    var td_2 = document.createElement('td')
+                    td_1.innerHTML = data[0]
+                    td_2.innerHTML = data[1]
+                    tr.append(td_1)
+                    tr.append(td_2)
+                    document.getElementById('tbl').append(tr)
+                }
+            }
+        
+        </script>
+    </body>
+</html>

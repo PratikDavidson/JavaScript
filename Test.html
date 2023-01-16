@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="mystyle.css">
+    </head>
+    <body>
+        <h1 id="header">Hello World!</h1>
+        <input type="text" id="inp">
+        <button type="button" onclick="count_freq_of_letters()">Click</button>
+        <div></div>
+        <div id="disp"></div>
+        <script>
+            console.log('Hello World!')         
+            function count_freq_of_letters(){
+                var text = document.getElementById('inp').value
+                var mp = new Map()
+                for (letter of text){
+                    if (mp.has(letter)){
+                        mp.set(letter,mp.get(letter)+1)
+                    }else{
+                        mp.set(letter,1)
+                    }
+                }
+                console.log(mp)
+                var table = document.createElement('table')
+                for (x of mp){
+                    console.log(x[0])
+                    console.log(x[1])
+                    var tr = document.createElement('tr')
+                    var td1 = document.createElement('td')
+                    var td2 = document.createElement('td')
+                    td1.innerHTML = x[0]
+                    td2.innerHTML = x[1]
+                    tr.append(td1)
+                    tr.append(td2)
+                    table.append(tr)
+                    
+            }
+            document.getElementById('disp').append(table)
+        }
+        </script>
+    </body>
+</html>

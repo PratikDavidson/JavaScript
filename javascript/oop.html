@@ -1,0 +1,70 @@
+<html>
+    <body>
+        <script>
+            class Employee{
+                constructor(fname,lname,pay){
+                    this.fname = fname
+                    this.lname = lname
+                    this.pay = pay
+                }
+                get fullname(){
+                    return this.fname+' '+this.lname
+                }
+                set fullname(name){
+                    this.fname = name.split(' ')[0]
+                    this.lname = name.split(' ')[1]
+                }
+            }
+            class Developer extends Employee{
+                constructor(fname,lname,pay,lang){
+                    super(fname,lname,pay)
+                    this.lang = lang
+                }
+            }
+
+            class Manager extends Employee{
+                constructor(fname,lname,pay,emp=null){
+                    super(fname,lname,pay)
+                    if (emp==null){
+                        this.emp = []
+                    }else{
+                        this.emp = [emp]
+                    }
+                }
+                add_emp(emp){
+                    if (emp in this.emp){
+                        return
+                    }else{
+                        this.emp.push(emp)
+                    }
+                }
+                remove_emp(emp){
+                    if (emp in this.emp){
+                        this.emp.remove(emp)
+                    }
+                }
+                print_emp(){
+                    for (emp of this.emp){
+                        console.log(emp)
+                    }
+                }
+            }
+
+            let emp = new Employee('Pratik','Deogam',50000)
+            console.log(emp.fullname)
+            emp.fullname = 'John kettny'
+            console.log(emp.fname)
+
+            let dev_1 = new Developer('John','Kettny',60000,'Python')
+            let dev_2 = new Developer('Pratik','Davidson',60000,'Java')
+            console.log(dev_1)
+            console.log(dev_2)
+
+            let mgr = new Manager('Tom','Hardy',100000,emp = dev_1)
+            console.log(mgr)
+            mgr.add_emp(dev_2)
+            mgr.print_emp()
+
+        </script>
+    </body>
+</html>
